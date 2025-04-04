@@ -3,10 +3,20 @@ server:
 
 spring:
   application:
-    name: CONFIG-SERVER
+    name: cloud-config-server
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/rohankhadgi/thrumi-config-server
+          uri: https://github.com/rohankhadgi/thrumi-config-server.git
           clone-on-start: true
+          refresh-rate: 300
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
