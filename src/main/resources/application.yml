@@ -12,6 +12,15 @@ spring:
           clone-on-start: true
           refresh-rate: 300
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
 eureka:
   instance:
     prefer-ip-address: true
